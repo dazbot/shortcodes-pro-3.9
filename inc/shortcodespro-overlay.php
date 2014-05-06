@@ -106,7 +106,10 @@ function checkSubmit()
 	}
 
 	if(window.tinyMCE) {
-		window.tinyMCE.execInstanceCommand('content', 'mceInsertContent', false, shortcodeContent);
+		// tinyMCE 3.*
+                // window.tinyMCE.execInstanceCommand('content', 'mceInsertContent', false, shortcodeContent);
+                // tinyMCE 4.*
+                window.tinyMCE.execCommand('mceInsertContent', false, shortcodeContent);
 		tinyMCEPopup.editor.execCommand('mceRepaint');
 		tinyMCEPopup.close();
 	}
